@@ -1,0 +1,71 @@
+{% extends 'home_layout.html' %}
+
+{% block content %}
+
+  <main id="main" data-aos="fade" data-aos-delay="1500">
+
+    
+
+    <!-- ======= Gallery Single Section ======= -->
+    <section id="gallery-single" class="gallery-single">
+      
+      <div class="container py-5">
+
+        <div class="position-relative h-100">
+          <div class="slides-1 portfolio-details-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+
+              <div class="swiper-slide">
+                <img src="#" alt="">
+              </div>
+              
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+        </div>
+       
+        <div class="row justify-content-center gy-4 mt-4">
+
+          <div class="col-lg-8">
+            
+            <div class="portfolio-description">
+              <h2 class="p-5"></h2>
+             
+                <div>
+                  <video controls="controls" class="w-100 h-100" >
+                    <source src="{{video.video.url}}"  type="video/mp4">
+                  </video>
+                  
+                </div>
+              </div>
+
+             
+
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="portfolio-info">
+              <h3>{{ video.video_title }}</h3>
+              <ul>
+                <li><strong>Category</strong> <span>{{video.genre}}</span></li>
+                <li><strong>Release year</strong> <span>{{video.release_year}}</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+        
+      
+    </section><!-- End Gallery Single Section -->
+
+  </main><!-- End #main -->
+
+  
+
+
+{% endblock content %}

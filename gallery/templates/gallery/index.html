@@ -1,0 +1,141 @@
+{% extends 'home_layout.html' %}
+
+ {% block content%}
+
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex flex-column justify-content-center align-items-center" data-aos="fade" data-aos-delay="1500">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+          <h2>WELCOME to<span>Binply</span> for your audio, video and pictures.</h2>
+          <p>Streaming and Download!!!</p>
+          <a href="" class="btn-get-started">Explore</a>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+  <main id="main" data-aos="fade" data-aos-delay="1500">
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+      <h1 class="fashion_taital text-center text-success py-5" id="images">IMAGES</h1>
+
+<div class="container">
+    <div class="fashion_section_2">
+        <div class="row">
+            {% for project in Pictures %}
+            <div class="col-md-4">
+              <div class="box_main">
+                  <div class="audio_audio">
+                    <a href="{% url 'pictures:details' project.id %}" class="text-decoration-none text-success text-center">
+                      <img src="{{ project.image.url }}" class="w-100 h-100 p-5 img-fluid img-thumbnail" alt="{{project.title}}">
+                    </a>
+                  </div>
+                  <div class="btn_main">
+                      <div class="buy_bt">
+                          <h4 class="audio_text text-center text-success">
+                              
+                                  TITLE: {{ project.title }}
+                            
+                          </h4>
+                      </div>
+                      <div class="seemore_bt text-warning text-center fs-5">
+                          <p class="price_text">CATEGORY: {{project.description}}</p>
+                          <p>DATE OF RELEASE: {{ project.date_created}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+               
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+     
+    </section><!-- End Gallery Section -->
+
+    <section id="gallery" class="gallery">
+      <h1 class="fashion_taital text-center text-success py-5" id="audio">MUSIC/AUDIO</h1>
+
+      <div class="container">
+        <div class="fashion_section_2">
+            <div class="row">
+                {% for track in Tracks %}
+                    <div class="col-md-4">
+                        <div class="box_main">
+                            <div class="audio_audio">
+                                <audio controls>
+                                    <source src="{{ track.track.url }}" type="audio/ogg">
+                                    <source src="{{ track.track.url }}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div class="btn_main">
+                                <div class="buy_bt">
+                                    <h4 class="audio_text">
+                                        <a href="{% url 'pictures:detailstrack' track.id%}" class="text-decoration-none text-success">
+                                            TITLE: {{ track.track_title }} | ARTIST:{{track.musician_name}}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="seemore_bt text-warning fs-5">
+                                    <p class="price_text">GENRE: {{ track.genre }}</p>
+                                    <p>YEAR OF RELEASE: {{ track.release_year }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+
+     
+    </section><!-- End Gallery Section -->
+    <section id="gallery" class="gallery">
+      <h1 class="fashion_taital text-center text-success py-5 " id="videos">VIDEOS</h1>
+
+<div class="container">
+    <div class="fashion_section_2">
+        <div class="row">
+            {% for video in Videos %}
+                <div class="col-md-4">
+                    <div class="box_main">
+                        
+                        <div class="electronic_img">
+                          <video controls="controls" class="w-100 h-100" >
+                          <source src="{{video.video.url}}"  type="video/mp4">
+                        </video>
+                      </div>
+                        <div class="btn_main">
+                            <div class="buy_bt text-center"><h4 class="shirt_text text-center "><a href="{% url 'pictures:detailsvideo' video.id %}" class="text-decoration-none text-success">TITTLE:{{ video.video_title }}</a></h4></div>
+                            <div class="seemore_bt text-center text-warning fs-5">
+                              <p class="price_text ">GENRE:{{ video.genre }}</p>
+                              <p>YEAR OF RELEASE: {{ video.release_year }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+     
+    </section><!-- End Gallery Section -->
+
+  </main><!-- End #main -->
+
+  
+
+  
+{% endblock%}
+  
+    
+    
+   
+
