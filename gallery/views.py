@@ -1,4 +1,4 @@
-from django.http import HttpResponse,Http404
+git from django.http import HttpResponse,Http404
 from django.shortcuts import render, get_list_or_404
 from . models import Pictures,Track,Video,Genre
 # Create your views here.
