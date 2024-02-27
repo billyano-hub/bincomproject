@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-iuxqxo1e@4%lp3y3=8r&oo=2xnr&ew^c)xe^+-mvyt45)_4fxj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG",True)
 
-ALLOWED_HOSTS = [ ] 
+ALLOWED_HOSTS = [ ".onrender.com"] 
 
 
 # Application definition
@@ -120,6 +120,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT =os.path.join(BASE_DIR,'static')
+
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
